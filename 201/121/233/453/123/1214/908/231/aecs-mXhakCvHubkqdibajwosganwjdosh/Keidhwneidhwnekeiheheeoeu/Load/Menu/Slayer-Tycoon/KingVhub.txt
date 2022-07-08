@@ -1,9 +1,16 @@
--- KingXMenuLoader
--- Made At Rbxteams And Devs
--- Instances:
+--- made by RbxteamADL And SHAKRS 
+-- loadstring(game:HttpGet('https://raw.githubusercontent.com/KingVhubStudios/KingXMenuLoader/main/201/121/233/453/123/1214/908/231/aecs-mXhakCvHubkqdibajwosganwjdosh/Keidhwneidhwnekeiheheeoeu/Load/Menu/Slayer-Tycoon/KingVhub.txt', true))()
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Files Conected";
+    Text = "Loading PLSS wAiT"; -- what the text says (ofc)
+    Duration = 5;
+})
 
 local ScreenGui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
+local Pro = Instance.new("TextButton")
+local Pro2 = Instance.new("TextButton")
+local Pro3 = Instance.new("TextButton")
 local Madebyframe = Instance.new("Frame")
 local Madeby = Instance.new("TextLabel")
 local PrisonLife = Instance.new("TextButton")
@@ -12,6 +19,7 @@ local Adminscript = Instance.new("TextButton")
 local Esp = Instance.new("TextButton")
 local Aimlock = Instance.new("TextButton")
 local NinjaLegends = Instance.new("TextButton")
+local NinjaLegends2 = Instance.new("TextButton")
 local MenuButton = Instance.new("TextButton")
 
 --Properties:
@@ -24,11 +32,13 @@ MainFrame.Parent = ScreenGui
 MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.Position = UDim2.new(0.28516379, 0, 0.222482443, 0)
 MainFrame.Size = UDim2.new(0, 564, 0, 320)
+MainFrame.Draggable = true
 
 Madebyframe.Name = "Made by frame"
 Madebyframe.Parent = MainFrame
 Madebyframe.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
 Madebyframe.Size = UDim2.new(0, 564, 0, 44)
+Madebyframe.Draggable = true
 
 Madeby.Name = "Made by"
 Madeby.Parent = Madebyframe
@@ -36,11 +46,12 @@ Madeby.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Madeby.BackgroundTransparency = 1.000
 Madeby.Size = UDim2.new(0, 564, 0, 44)
 Madeby.Font = Enum.Font.SourceSans
-Madeby.Text = " SLAYER TYCOON X KING VHUB"
-Madeby.TextColor3 = Color3.fromRGB(255, 255, 255)
+Madeby.Text = "SLAYER TYCOON v2"
+Madeby.TextColor3 = Color3.fromRGB(5, 55, 25)
 Madeby.TextScaled = true
-Madeby.TextSize = 14.000
+Madeby.TextSize = 13.000
 Madeby.TextWrapped = true
+Madeby.Draggable = true
 
 PrisonLife.Name = "PrisonLife"
 PrisonLife.Parent = MainFrame
@@ -61,7 +72,7 @@ Arsenal.Name = "Arsenal"
 Arsenal.Parent = MainFrame
 Arsenal.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 Arsenal.Position = UDim2.new(0.553191483, 0, 0.293749988, 0)
-Arsenal.Size = UDim2.new(0, 200, 0, 50)
+Arsenal.Size = UDim2.new(0, 100, 0, 50)
 Arsenal.Font = Enum.Font.SourceSans
 Arsenal.Text = "AutoFarm On"
 Arsenal.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -92,24 +103,37 @@ Adminscript.Name = "Admin script"
 Adminscript.Parent = MainFrame
 Adminscript.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 Adminscript.Position = UDim2.new(0.553191483, 0, 0.565625012, 0)
-Adminscript.Size = UDim2.new(0, 200, 0, 50)
+Adminscript.Size = UDim2.new(0, 100, 0, 50)
 Adminscript.Font = Enum.Font.SourceSans
-Adminscript.Text = "AutoMoney Off"
+Adminscript.Text = "AutoFarm Off"
 Adminscript.TextColor3 = Color3.fromRGB(255, 255, 255)
 Adminscript.TextScaled = true
 Adminscript.TextSize = 14.000
 Adminscript.TextWrapped = true
 Adminscript.MouseButton1Down:connect(function()
-_G.Toggle = disable--Change to enabled to enable the money farm, Change to anything to disable.
-
-loadstring(game:HttpGet('https://raw.githubusercontent.com/MonkeyDLuffyx/Scripts/Slayer-Tycoon-(v1.1)/Slayer%20Tycoon%20Money%20Farm.lua', true))()
+shared.Enabled = false
+ 
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local hatchet = plr.Backpack.Hatchet or char.Hatchet
+ 
+for i,v in pairs(workspace.Map:GetChildren())do
+   if v:FindFirstChild("WoodHitPart") and v.Leaves.Transparency == 0 and shared.Enabled then
+       repeat wait()
+           char.Humanoid:EquipTool(hatchet)
+           wait()
+           hatchet:Activate()
+           char:SetPrimaryPartCFrame(v.WoodHitPart.CFrame)
+       until v.Leaves.Transparency == 1
+   end
+end
 end)
 
 NinjaLegends.Name = "Ninja Legends"
 NinjaLegends.Parent = MainFrame
 NinjaLegends.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 NinjaLegends.Position = UDim2.new(0.0514184237, 0, 0.565624952, 0)
-NinjaLegends.Size = UDim2.new(0, 200, 0, 50)
+NinjaLegends.Size = UDim2.new(0, 100, 0, 50)
 NinjaLegends.Font = Enum.Font.SourceSans
 NinjaLegends.Text = "AutoMoney On"
 NinjaLegends.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -121,18 +145,108 @@ _G.Toggle = enable--Change to enabled to enable the money farm, Change to anythi
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/MonkeyDLuffyx/Scripts/Slayer-Tycoon-(v1.1)/Slayer%20Tycoon%20Money%20Farm.lua', true))()
 end)
+
+NinjaLegends2.Name = "Ninja Legends2"
+NinjaLegends2.Parent = MainFrame
+NinjaLegends2.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+NinjaLegends2.Position = UDim2.new(0.0514184237, 0, 0.565624952, 0)
+NinjaLegends2.Size = UDim2.new(0, 100, 0, 50)
+NinjaLegends2.Font = Enum.Font.SourceSans
+NinjaLegends2.Text = "Bring All (Non fe)"
+NinjaLegends2.TextColor3 = Color3.fromRGB(255, 255, 255)
+NinjaLegends2.TextScaled = true
+NinjaLegends2.TextSize = 14.000
+NinjaLegends2.TextWrapped = true
+NinjaLegends2.MouseButton1Down:connect(function()
+local L_1_ = true;
+local L_2_ = game.Players.LocalPlayer.Character.HumanoidRootPart;
+local L_3_ = L_2_.Position - Vector3.new(5, 0, 0)
+
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(L_4_arg1)
+	if L_4_arg1 == 'f' then
+		L_1_ = not L_1_
+	end;
+	if L_4_arg1 == 'r' then
+		L_2_ = game.Players.LocalPlayer.Character.HumanoidRootPart;
+		L_3_ = L_2_.Position - Vector3.new(5, 0, 0)
+	end
+end)
+
+for L_5_forvar1, L_6_forvar2 in pairs(game.Players:GetPlayers()) do
+	if L_6_forvar2 == game.Players.LocalPlayer then
+	else
+		local L_7_ = coroutine.create(function()
+			game:GetService('RunService').RenderStepped:Connect(function()
+				local L_8_, L_9_ = pcall(function()
+					local L_10_ = L_6_forvar2.Character;
+					if L_10_ then
+						if L_10_:FindFirstChild("HumanoidRootPart") then
+							if L_1_ then
+								L_6_forvar2.Backpack:ClearAllChildren()
+								for L_11_forvar1, L_12_forvar2 in pairs(L_10_:GetChildren()) do
+									if L_12_forvar2:IsA("Tool") then
+										L_12_forvar2:Destroy()
+									end
+								end;
+								L_10_.HumanoidRootPart.CFrame = CFrame.new(L_3_)
+							end
+						end
+					end
+				end)
+				if L_8_ then
+				else
+					warn("Unnormal error: "..L_9_)
+				end
+			end)
+		end)
+		coroutine.resume(L_7_)
+	end
+end;
+
+game.Players.PlayerAdded:Connect(function(L_13_arg1)   
+	if L_13_arg1 == game.Players.LocalPlayer then
+	else
+		local L_14_ = coroutine.create(function()
+			game:GetService('RunService').RenderStepped:Connect(function()
+				local L_15_, L_16_ = pcall(function()
+					local L_17_ = L_13_arg1.Character;
+					if L_17_ then
+						if L_17_:FindFirstChild("HumanoidRootPart") then
+							if L_1_ then
+								L_13_arg1.Backpack:ClearAllChildren()
+								for L_18_forvar1, L_19_forvar2 in pairs(L_17_:GetChildren()) do
+									if L_19_forvar2:IsA("Tool") then
+										L_19_forvar2:Destroy()
+									end
+								end;
+								L_17_.HumanoidRootPart.CFrame = CFrame.new(L_3_)
+							end
+						end
+					end
+				end)
+				if L_15_ then
+				else
+					warn("Unnormal error: "..L_16_)
+				end
+			end)
+		end)
+		coroutine.resume(L_14_)
+	end           
+end)
+end)
+
 MenuButton.Name = "Menu Button"
 MenuButton.Parent = ScreenGui
 MenuButton.BackgroundColor3 = Color3.fromRGB(52, 190, 255)
 MenuButton.Position = UDim2.new(0, 0, 0.274004698, 0)
-MenuButton.Size = UDim2.new(0, 150, 0, 50)
+MenuButton.Size = UDim2.new(0, 100, 0, 50)
 MenuButton.Font = Enum.Font.PatrickHand
-MenuButton.Text = "Open/Close"
-MenuButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+MenuButton.Text = "Close"
+MenuButton.TextColor3 = Color3.fromRGB(21, 123, 255)
 MenuButton.TextScaled = true
-MenuButton.TextSize = 14.000
+MenuButton.TextSize = 13.000
 MenuButton.TextWrapped = true
-
+MenuButton.Draggable = true
 -- Scripts:
 
 local function PJJQCDE_fake_script() -- MenuButton.LocalScript 
